@@ -418,10 +418,6 @@ namespace INFX497_BuddyPaulMartin
             if (fileType == "Word")
             {
 
-                
-
-
-
                 reading.NameFile = contactpath;
                 // CREATE AN ARRAY TO HOLD HEADER VALUES FROM FILE
                 string[] copyHeader = reading.WordTableHeader();
@@ -891,7 +887,9 @@ namespace INFX497_BuddyPaulMartin
         //method that will create a new Excel Sheet that will be used when making calls to clients 
         private void btnCreateCallList_Click(object sender, EventArgs e)
         {
-            
+            NewCallList callList = new NewCallList();
+            callList.dataTable = dataTable;
+            callList.ShowDialog();
         }
 
         private void btnMakeCalls_Click(object sender, EventArgs e)

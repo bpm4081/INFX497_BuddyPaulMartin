@@ -88,6 +88,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewCallList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCallList.Designer.cs">
+      <DependentUpon>NewCallList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Preview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCallList.resx">
+      <DependentUpon>NewCallList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Preview.resx">
       <DependentUpon>Preview.cs</DependentUpon>
