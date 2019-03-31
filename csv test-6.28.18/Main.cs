@@ -894,7 +894,12 @@ namespace INFX497_BuddyPaulMartin
 
         private void btnMakeCalls_Click(object sender, EventArgs e)
         {
-            
+            MakeCalls calls = new MakeCalls();
+            if (calls.failed == false)
+            {
+                calls.ShowDialog();
+                calls.driver.Quit();
+            }
         }
 
         // ####################################################################################################################################################################################################

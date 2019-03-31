@@ -265,6 +265,7 @@ namespace INFX497_BuddyPaulMartin
             object misValue = System.Reflection.Missing.Value;
 
             xlWorkBook = xlApp.Workbooks.Add(misValue);
+            //xlWorkBook = xlApp.Workbooks.Add(Type.Missing);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[1];
             saveDataLabel.Text = saveDataText + "";
 
