@@ -70,6 +70,9 @@
             this.lblPullContacts = new System.Windows.Forms.Label();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.toolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.createVishingReport = new System.ComponentModel.BackgroundWorker();
+            this.createPhishingReport = new System.ComponentModel.BackgroundWorker();
+            this.createBothReport = new System.ComponentModel.BackgroundWorker();
             this.tabMAIN.SuspendLayout();
             this.tabEmail.SuspendLayout();
             this.tabPhone.SuspendLayout();
@@ -86,14 +89,14 @@
             this.tabMAIN.HotTrack = true;
             this.tabMAIN.ImageList = this.imagesMedium;
             this.tabMAIN.ItemSize = new System.Drawing.Size(70, 40);
-            this.tabMAIN.Location = new System.Drawing.Point(0, 109);
+            this.tabMAIN.Location = new System.Drawing.Point(0, 134);
             this.tabMAIN.Margin = new System.Windows.Forms.Padding(0);
             this.tabMAIN.Multiline = true;
             this.tabMAIN.Name = "tabMAIN";
             this.tabMAIN.RightToLeftLayout = true;
             this.tabMAIN.SelectedIndex = 0;
             this.tabMAIN.ShowToolTips = true;
-            this.tabMAIN.Size = new System.Drawing.Size(405, 235);
+            this.tabMAIN.Size = new System.Drawing.Size(540, 289);
             this.tabMAIN.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabMAIN.TabIndex = 9;
             // 
@@ -113,9 +116,10 @@
             this.tabEmail.Controls.Add(this.btnKnowbe4CSV);
             this.tabEmail.ImageIndex = 2;
             this.tabEmail.Location = new System.Drawing.Point(4, 44);
+            this.tabEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tabEmail.Name = "tabEmail";
-            this.tabEmail.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEmail.Size = new System.Drawing.Size(397, 187);
+            this.tabEmail.Padding = new System.Windows.Forms.Padding(4);
+            this.tabEmail.Size = new System.Drawing.Size(532, 241);
             this.tabEmail.TabIndex = 0;
             this.tabEmail.ToolTipText = "Email Tools";
             // 
@@ -130,9 +134,10 @@
             this.btnAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddNew.ImageKey = "add-file-256.gif";
             this.btnAddNew.ImageList = this.imagesSmall;
-            this.btnAddNew.Location = new System.Drawing.Point(267, 134);
+            this.btnAddNew.Location = new System.Drawing.Point(356, 165);
+            this.btnAddNew.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(100, 36);
+            this.btnAddNew.Size = new System.Drawing.Size(133, 44);
             this.btnAddNew.TabIndex = 14;
             this.btnAddNew.Text = "Add New";
             this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -151,9 +156,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(15, 134);
+            this.label4.Location = new System.Drawing.Point(20, 165);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 13);
+            this.label4.Size = new System.Drawing.Size(160, 16);
             this.label4.TabIndex = 13;
             this.label4.Text = "optional user group name";
             // 
@@ -161,9 +167,10 @@
             // 
             this.txtUserGroup.BackColor = System.Drawing.Color.Gray;
             this.txtUserGroup.Enabled = false;
-            this.txtUserGroup.Location = new System.Drawing.Point(28, 150);
+            this.txtUserGroup.Location = new System.Drawing.Point(37, 185);
+            this.txtUserGroup.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserGroup.Name = "txtUserGroup";
-            this.txtUserGroup.Size = new System.Drawing.Size(93, 20);
+            this.txtUserGroup.Size = new System.Drawing.Size(123, 22);
             this.txtUserGroup.TabIndex = 2;
             // 
             // label1
@@ -172,9 +179,10 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(53, 12);
+            this.label1.Location = new System.Drawing.Point(71, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 20);
+            this.label1.Size = new System.Drawing.Size(58, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "CSV";
             // 
@@ -183,9 +191,10 @@
             this.radInsight.AutoSize = true;
             this.radInsight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radInsight.ForeColor = System.Drawing.Color.White;
-            this.radInsight.Location = new System.Drawing.Point(249, 42);
+            this.radInsight.Location = new System.Drawing.Point(332, 52);
+            this.radInsight.Margin = new System.Windows.Forms.Padding(4);
             this.radInsight.Name = "radInsight";
-            this.radInsight.Size = new System.Drawing.Size(121, 17);
+            this.radInsight.Size = new System.Drawing.Size(151, 21);
             this.radInsight.TabIndex = 11;
             this.radInsight.TabStop = true;
             this.radInsight.Text = "Access Payloads";
@@ -204,9 +213,10 @@
             this.btnCopyClipboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopyClipboard.ImageKey = "arrow-59-256.gif";
             this.btnCopyClipboard.ImageList = this.imagesSmall;
-            this.btnCopyClipboard.Location = new System.Drawing.Point(267, 92);
+            this.btnCopyClipboard.Location = new System.Drawing.Point(356, 113);
+            this.btnCopyClipboard.Margin = new System.Windows.Forms.Padding(4);
             this.btnCopyClipboard.Name = "btnCopyClipboard";
-            this.btnCopyClipboard.Size = new System.Drawing.Size(100, 36);
+            this.btnCopyClipboard.Size = new System.Drawing.Size(133, 44);
             this.btnCopyClipboard.TabIndex = 9;
             this.btnCopyClipboard.Text = "Clipboard";
             this.btnCopyClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -218,9 +228,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(218, 12);
+            this.label3.Location = new System.Drawing.Point(291, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 20);
+            this.label3.Size = new System.Drawing.Size(156, 25);
             this.label3.TabIndex = 8;
             this.label3.Text = "Payload Picker";
             // 
@@ -232,10 +243,11 @@
             this.cboPayloadPicker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboPayloadPicker.ForeColor = System.Drawing.Color.LightGray;
             this.cboPayloadPicker.FormattingEnabled = true;
-            this.cboPayloadPicker.Location = new System.Drawing.Point(193, 65);
+            this.cboPayloadPicker.Location = new System.Drawing.Point(257, 80);
+            this.cboPayloadPicker.Margin = new System.Windows.Forms.Padding(4);
             this.cboPayloadPicker.MaxDropDownItems = 20;
             this.cboPayloadPicker.Name = "cboPayloadPicker";
-            this.cboPayloadPicker.Size = new System.Drawing.Size(177, 21);
+            this.cboPayloadPicker.Size = new System.Drawing.Size(235, 24);
             this.cboPayloadPicker.TabIndex = 6;
             // 
             // btnInsightCSV
@@ -249,9 +261,10 @@
             this.btnInsightCSV.ForeColor = System.Drawing.Color.LightGray;
             this.btnInsightCSV.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInsightCSV.ImageIndex = 7;
-            this.btnInsightCSV.Location = new System.Drawing.Point(28, 43);
+            this.btnInsightCSV.Location = new System.Drawing.Point(37, 53);
+            this.btnInsightCSV.Margin = new System.Windows.Forms.Padding(4);
             this.btnInsightCSV.Name = "btnInsightCSV";
-            this.btnInsightCSV.Size = new System.Drawing.Size(93, 35);
+            this.btnInsightCSV.Size = new System.Drawing.Size(124, 43);
             this.btnInsightCSV.TabIndex = 3;
             this.btnInsightCSV.Text = "Insight";
             this.btnInsightCSV.UseVisualStyleBackColor = false;
@@ -266,9 +279,10 @@
             this.btnKnowbe4CSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKnowbe4CSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKnowbe4CSV.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnKnowbe4CSV.Location = new System.Drawing.Point(28, 92);
+            this.btnKnowbe4CSV.Location = new System.Drawing.Point(37, 113);
+            this.btnKnowbe4CSV.Margin = new System.Windows.Forms.Padding(4);
             this.btnKnowbe4CSV.Name = "btnKnowbe4CSV";
-            this.btnKnowbe4CSV.Size = new System.Drawing.Size(93, 35);
+            this.btnKnowbe4CSV.Size = new System.Drawing.Size(124, 43);
             this.btnKnowbe4CSV.TabIndex = 4;
             this.btnKnowbe4CSV.Text = "KnowBe4";
             this.btnKnowbe4CSV.UseVisualStyleBackColor = false;
@@ -281,10 +295,11 @@
             this.tabPhone.Controls.Add(this.btnCreateCallList);
             this.tabPhone.ImageIndex = 8;
             this.tabPhone.Location = new System.Drawing.Point(4, 44);
+            this.tabPhone.Margin = new System.Windows.Forms.Padding(4);
             this.tabPhone.Name = "tabPhone";
-            this.tabPhone.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPhone.Padding = new System.Windows.Forms.Padding(4);
             this.tabPhone.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPhone.Size = new System.Drawing.Size(397, 187);
+            this.tabPhone.Size = new System.Drawing.Size(532, 241);
             this.tabPhone.TabIndex = 1;
             this.tabPhone.ToolTipText = "Phone Tools";
             // 
@@ -298,9 +313,10 @@
             this.btnMakeCalls.ForeColor = System.Drawing.Color.White;
             this.btnMakeCalls.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMakeCalls.ImageIndex = 7;
-            this.btnMakeCalls.Location = new System.Drawing.Point(234, 42);
+            this.btnMakeCalls.Location = new System.Drawing.Point(312, 52);
+            this.btnMakeCalls.Margin = new System.Windows.Forms.Padding(4);
             this.btnMakeCalls.Name = "btnMakeCalls";
-            this.btnMakeCalls.Size = new System.Drawing.Size(93, 44);
+            this.btnMakeCalls.Size = new System.Drawing.Size(124, 54);
             this.btnMakeCalls.TabIndex = 5;
             this.btnMakeCalls.Text = "Make Calls";
             this.btnMakeCalls.UseVisualStyleBackColor = false;
@@ -317,9 +333,10 @@
             this.btnCreateCallList.ForeColor = System.Drawing.Color.LightGray;
             this.btnCreateCallList.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCreateCallList.ImageIndex = 7;
-            this.btnCreateCallList.Location = new System.Drawing.Point(62, 42);
+            this.btnCreateCallList.Location = new System.Drawing.Point(83, 52);
+            this.btnCreateCallList.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateCallList.Name = "btnCreateCallList";
-            this.btnCreateCallList.Size = new System.Drawing.Size(93, 44);
+            this.btnCreateCallList.Size = new System.Drawing.Size(124, 54);
             this.btnCreateCallList.TabIndex = 4;
             this.btnCreateCallList.Text = "Create Call List";
             this.btnCreateCallList.UseVisualStyleBackColor = false;
@@ -328,9 +345,9 @@
             // tabReport
             // 
             this.tabReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.tabReport.Controls.Add(this.progressBar1);
             this.tabReport.Controls.Add(this.labelCurrentAction);
             this.tabReport.Controls.Add(this.labelPercentage);
-            this.tabReport.Controls.Add(this.progressBar1);
             this.tabReport.Controls.Add(this.dateTimePicker1);
             this.tabReport.Controls.Add(this.label7);
             this.tabReport.Controls.Add(this.label6);
@@ -344,9 +361,10 @@
             this.tabReport.Controls.Add(this.btnReportShell);
             this.tabReport.ImageIndex = 0;
             this.tabReport.Location = new System.Drawing.Point(4, 44);
+            this.tabReport.Margin = new System.Windows.Forms.Padding(4);
             this.tabReport.Name = "tabReport";
-            this.tabReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReport.Size = new System.Drawing.Size(397, 187);
+            this.tabReport.Padding = new System.Windows.Forms.Padding(4);
+            this.tabReport.Size = new System.Drawing.Size(532, 241);
             this.tabReport.TabIndex = 2;
             // 
             // labelCurrentAction
@@ -354,9 +372,10 @@
             this.labelCurrentAction.AutoSize = true;
             this.labelCurrentAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCurrentAction.ForeColor = System.Drawing.Color.White;
-            this.labelCurrentAction.Location = new System.Drawing.Point(160, 73);
+            this.labelCurrentAction.Location = new System.Drawing.Point(213, 90);
+            this.labelCurrentAction.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCurrentAction.Name = "labelCurrentAction";
-            this.labelCurrentAction.Size = new System.Drawing.Size(82, 18);
+            this.labelCurrentAction.Size = new System.Drawing.Size(103, 24);
             this.labelCurrentAction.TabIndex = 22;
             this.labelCurrentAction.Text = "Loading...";
             this.labelCurrentAction.Visible = false;
@@ -366,38 +385,43 @@
             this.labelPercentage.AutoSize = true;
             this.labelPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPercentage.ForeColor = System.Drawing.Color.White;
-            this.labelPercentage.Location = new System.Drawing.Point(100, 122);
+            this.labelPercentage.Location = new System.Drawing.Point(133, 150);
+            this.labelPercentage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPercentage.Name = "labelPercentage";
-            this.labelPercentage.Size = new System.Drawing.Size(30, 17);
+            this.labelPercentage.Size = new System.Drawing.Size(35, 20);
             this.labelPercentage.TabIndex = 21;
             this.labelPercentage.Text = "0%";
             this.labelPercentage.Visible = false;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(98, 96);
+            this.progressBar1.Location = new System.Drawing.Point(131, 118);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(200, 23);
+            this.progressBar1.Size = new System.Drawing.Size(267, 28);
             this.progressBar1.TabIndex = 20;
             this.progressBar1.Visible = false;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(142, 99);
+            this.dateTimePicker1.Location = new System.Drawing.Point(189, 122);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(132, 22);
             this.dateTimePicker1.TabIndex = 17;
             this.dateTimePicker1.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(4, 73);
+            this.label7.Location = new System.Drawing.Point(5, 90);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(138, 18);
+            this.label7.Size = new System.Drawing.Size(164, 24);
             this.label7.TabIndex = 19;
             this.label7.Text = "Point of Contact*";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -407,9 +431,10 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(4, 101);
+            this.label6.Location = new System.Drawing.Point(5, 124);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 18);
+            this.label6.Size = new System.Drawing.Size(157, 24);
             this.label6.TabIndex = 18;
             this.label6.Text = "Email Start Date";
             // 
@@ -418,27 +443,30 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(56, 45);
+            this.label5.Location = new System.Drawing.Point(75, 55);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 18);
+            this.label5.Size = new System.Drawing.Size(106, 24);
             this.label5.TabIndex = 17;
             this.label5.Text = "Company*";
             // 
             // txtPOC
             // 
-            this.txtPOC.Location = new System.Drawing.Point(142, 72);
-            this.txtPOC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPOC.Location = new System.Drawing.Point(189, 89);
+            this.txtPOC.Margin = new System.Windows.Forms.Padding(5);
             this.txtPOC.Name = "txtPOC";
-            this.txtPOC.Size = new System.Drawing.Size(100, 20);
+            this.txtPOC.Size = new System.Drawing.Size(132, 22);
             this.txtPOC.TabIndex = 16;
+            this.txtPOC.TextChanged += new System.EventHandler(this.txtPOC_TextChanged);
             // 
             // txtClient
             // 
-            this.txtClient.Location = new System.Drawing.Point(142, 44);
-            this.txtClient.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClient.Location = new System.Drawing.Point(189, 54);
+            this.txtClient.Margin = new System.Windows.Forms.Padding(5);
             this.txtClient.Name = "txtClient";
-            this.txtClient.Size = new System.Drawing.Size(100, 20);
+            this.txtClient.Size = new System.Drawing.Size(132, 22);
             this.txtClient.TabIndex = 15;
+            this.txtClient.TextChanged += new System.EventHandler(this.txtClient_TextChanged);
             // 
             // radBoth
             // 
@@ -446,14 +474,15 @@
             this.radBoth.Enabled = false;
             this.radBoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radBoth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radBoth.Location = new System.Drawing.Point(283, 103);
+            this.radBoth.Location = new System.Drawing.Point(377, 127);
             this.radBoth.Margin = new System.Windows.Forms.Padding(1);
             this.radBoth.Name = "radBoth";
-            this.radBoth.Size = new System.Drawing.Size(51, 17);
+            this.radBoth.Size = new System.Drawing.Size(62, 21);
             this.radBoth.TabIndex = 13;
             this.radBoth.TabStop = true;
             this.radBoth.Text = "Both";
             this.radBoth.UseVisualStyleBackColor = true;
+            this.radBoth.Click += new System.EventHandler(this.radBoth_Click);
             // 
             // radPhone
             // 
@@ -461,14 +490,15 @@
             this.radPhone.Enabled = false;
             this.radPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radPhone.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radPhone.Location = new System.Drawing.Point(283, 75);
+            this.radPhone.Location = new System.Drawing.Point(377, 92);
             this.radPhone.Margin = new System.Windows.Forms.Padding(1);
             this.radPhone.Name = "radPhone";
-            this.radPhone.Size = new System.Drawing.Size(61, 17);
+            this.radPhone.Size = new System.Drawing.Size(75, 21);
             this.radPhone.TabIndex = 12;
             this.radPhone.TabStop = true;
             this.radPhone.Text = "Phone";
             this.radPhone.UseVisualStyleBackColor = true;
+            this.radPhone.Click += new System.EventHandler(this.radPhone_Click);
             // 
             // radEmail
             // 
@@ -476,22 +506,24 @@
             this.radEmail.Enabled = false;
             this.radEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radEmail.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radEmail.Location = new System.Drawing.Point(283, 47);
+            this.radEmail.Location = new System.Drawing.Point(377, 58);
             this.radEmail.Margin = new System.Windows.Forms.Padding(1);
             this.radEmail.Name = "radEmail";
-            this.radEmail.Size = new System.Drawing.Size(55, 17);
+            this.radEmail.Size = new System.Drawing.Size(68, 21);
             this.radEmail.TabIndex = 11;
             this.radEmail.TabStop = true;
             this.radEmail.Text = "Email";
             this.radEmail.UseVisualStyleBackColor = true;
+            this.radEmail.Click += new System.EventHandler(this.radEmail_Click);
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(141, 12);
+            this.label2.Location = new System.Drawing.Point(188, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 17);
+            this.label2.Size = new System.Drawing.Size(135, 21);
             this.label2.TabIndex = 9;
             this.label2.Text = "Report Shell";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -505,13 +537,14 @@
             this.btnReportShell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportShell.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportShell.ForeColor = System.Drawing.Color.LightGray;
-            this.btnReportShell.Location = new System.Drawing.Point(144, 132);
-            this.btnReportShell.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReportShell.Location = new System.Drawing.Point(192, 162);
+            this.btnReportShell.Margin = new System.Windows.Forms.Padding(5);
             this.btnReportShell.Name = "btnReportShell";
-            this.btnReportShell.Size = new System.Drawing.Size(101, 51);
+            this.btnReportShell.Size = new System.Drawing.Size(135, 63);
             this.btnReportShell.TabIndex = 8;
             this.btnReportShell.Text = "Create Report";
             this.btnReportShell.UseVisualStyleBackColor = false;
+            this.btnReportShell.Click += new System.EventHandler(this.btnReportShell_Click);
             // 
             // imagesMedium
             // 
@@ -538,7 +571,7 @@
             this.panelHead.Location = new System.Drawing.Point(0, 0);
             this.panelHead.Margin = new System.Windows.Forms.Padding(0);
             this.panelHead.Name = "panelHead";
-            this.panelHead.Size = new System.Drawing.Size(405, 109);
+            this.panelHead.Size = new System.Drawing.Size(540, 134);
             this.panelHead.TabIndex = 8;
             // 
             // btnPreview2
@@ -549,10 +582,10 @@
             this.btnPreview2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnPreview2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPreview2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.btnPreview2.Location = new System.Drawing.Point(238, 12);
+            this.btnPreview2.Location = new System.Drawing.Point(317, 15);
             this.btnPreview2.Margin = new System.Windows.Forms.Padding(1);
             this.btnPreview2.Name = "btnPreview2";
-            this.btnPreview2.Size = new System.Drawing.Size(27, 22);
+            this.btnPreview2.Size = new System.Drawing.Size(36, 27);
             this.btnPreview2.TabIndex = 3;
             this.btnPreview2.UseVisualStyleBackColor = false;
             this.btnPreview2.Visible = false;
@@ -567,10 +600,10 @@
             this.btnOpenExcelFile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenExcelFile.ImageIndex = 1;
             this.btnOpenExcelFile.ImageList = this.imagesLarge;
-            this.btnOpenExcelFile.Location = new System.Drawing.Point(269, 12);
-            this.btnOpenExcelFile.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.btnOpenExcelFile.Location = new System.Drawing.Point(359, 15);
+            this.btnOpenExcelFile.Margin = new System.Windows.Forms.Padding(4, 4, 27, 4);
             this.btnOpenExcelFile.Name = "btnOpenExcelFile";
-            this.btnOpenExcelFile.Size = new System.Drawing.Size(104, 55);
+            this.btnOpenExcelFile.Size = new System.Drawing.Size(139, 68);
             this.btnOpenExcelFile.TabIndex = 2;
             this.btnOpenExcelFile.Text = "Open\r\nExcel\r\nFile";
             this.btnOpenExcelFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -595,10 +628,10 @@
             this.btnPreview.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPreview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.btnPreview.Location = new System.Drawing.Point(132, 12);
+            this.btnPreview.Location = new System.Drawing.Point(176, 15);
             this.btnPreview.Margin = new System.Windows.Forms.Padding(1);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(27, 22);
+            this.btnPreview.Size = new System.Drawing.Size(36, 27);
             this.btnPreview.TabIndex = 0;
             this.btnPreview.UseVisualStyleBackColor = false;
             this.btnPreview.Visible = false;
@@ -607,9 +640,10 @@
             // lblPullContacts
             // 
             this.lblPullContacts.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPullContacts.Location = new System.Drawing.Point(3, 70);
+            this.lblPullContacts.Location = new System.Drawing.Point(4, 86);
+            this.lblPullContacts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPullContacts.Name = "lblPullContacts";
-            this.lblPullContacts.Size = new System.Drawing.Size(188, 41);
+            this.lblPullContacts.Size = new System.Drawing.Size(251, 50);
             this.lblPullContacts.TabIndex = 1;
             this.lblPullContacts.Text = "Contact Data Extracted!";
             this.lblPullContacts.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -624,10 +658,10 @@
             this.btnOpenFile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenFile.ImageIndex = 0;
             this.btnOpenFile.ImageList = this.imagesLarge;
-            this.btnOpenFile.Location = new System.Drawing.Point(20, 12);
-            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.btnOpenFile.Location = new System.Drawing.Point(27, 15);
+            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(27, 4, 4, 4);
             this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(104, 55);
+            this.btnOpenFile.Size = new System.Drawing.Size(139, 68);
             this.btnOpenFile.TabIndex = 0;
             this.btnOpenFile.Text = "Open \r\nWord\r\nFile";
             this.btnOpenFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -638,17 +672,42 @@
             // 
             this.toolTips.ToolTipTitle = "Email Tools";
             // 
+            // createVishingReport
+            // 
+            this.createVishingReport.WorkerReportsProgress = true;
+            this.createVishingReport.WorkerSupportsCancellation = true;
+            this.createVishingReport.DoWork += new System.ComponentModel.DoWorkEventHandler(this.createVishingReport_DoWork);
+            this.createVishingReport.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.createVishingReport_ProgressChanged);
+            this.createVishingReport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.createVishingReport_RunWorkerCompleted);
+            // 
+            // createPhishingReport
+            // 
+            this.createPhishingReport.WorkerReportsProgress = true;
+            this.createPhishingReport.WorkerSupportsCancellation = true;
+            this.createPhishingReport.DoWork += new System.ComponentModel.DoWorkEventHandler(this.createPhishingReport_DoWork);
+            this.createPhishingReport.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.createPhishingReport_ProgressChanged);
+            this.createPhishingReport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.createPhishingReport_RunWorkerCompleted);
+            // 
+            // createBothReport
+            // 
+            this.createBothReport.WorkerReportsProgress = true;
+            this.createBothReport.WorkerSupportsCancellation = true;
+            this.createBothReport.DoWork += new System.ComponentModel.DoWorkEventHandler(this.createBothReport_DoWork);
+            this.createBothReport.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.createBothReport_ProgressChanged);
+            this.createBothReport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.createBothReport_RunWorkerCompleted);
+            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.ClientSize = new System.Drawing.Size(402, 345);
+            this.ClientSize = new System.Drawing.Size(536, 425);
             this.Controls.Add(this.tabMAIN);
             this.Controls.Add(this.panelHead);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.Text = "Trace Remote Social Engineering Tool";
             this.Load += new System.EventHandler(this.Main_Load);
@@ -705,6 +764,9 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label labelPercentage;
         private System.Windows.Forms.Label labelCurrentAction;
+        private System.ComponentModel.BackgroundWorker createVishingReport;
+        private System.ComponentModel.BackgroundWorker createPhishingReport;
+        private System.ComponentModel.BackgroundWorker createBothReport;
     }
 }
 
